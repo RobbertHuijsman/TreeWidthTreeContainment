@@ -1,5 +1,6 @@
 Welcome to my master's thesis code. 
 
+Link to the thesis: http://resolver.tudelft.nl/uuid:3906ebda-d667-4d3e-8bee-3f1f4df78387
 Here is a description of what everything does:
 
 MAIN STUFF:
