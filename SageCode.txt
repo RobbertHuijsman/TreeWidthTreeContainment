@@ -1,0 +1,57 @@
+import ast
+
+def read_data(filename):
+    file = open(filename, "r") # open the file and tell sage we we are reading, so "r"
+    line1 = file.read()
+    line1 = line1.split("\n")
+    file.close()
+    edges = ast.literal_eval(line1[0])
+    edges.extend(ast.literal_eval(line1[1]))
+    G = Graph(edges)
+    return G
+
+
+def read_network(filename):
+    file = open(filename, "r") # open the file and tell sage we we are reading, so "r"
+    line1 = file.read()
+    line1 = line1.split("\n")
+    file.close()
+    edges = ast.literal_eval(line1[0])
+    G = Graph(edges)
+    return G
+
+def write_data(filename, data):
+    datafile = open(filename, "w")
+    datafile.write(str(data))
+    datafile.write("\n")
+    datafile.close()
+
+# Do tree-decomposition checks
+# for i in [3..30]:
+#     print(i)
+#     count_str = "0000" + str(i)
+#     count_str = count_str[-4:]
+#     filename1 = "input" + count_str + ".txt"
+#     print(filename1)
+#     G = read_data(filename1)
+#     T1 = G.treewidth()
+#     N = read_network(filename1)
+#     T2 = N.treewidth()
+#     if T1 > 2*T2 + 1:
+#         print("Positive")
+#     else:
+#         print("Negative")
+
+print("Start of generation")
+
+# Turn normal testcases into path-decomposition testcases
+for i in [16..25]:
+    count_str = "0000" + str(i)
+    count_str = count_str[-4:]
+    filename1 = "input" + count_str + ".txt"
+    print(filename1)
+    G = read_data(filename1)
+    print("Computing")
+    pw, DG = G.pathwidth(certificate=True)
+    filename2 = "path_input" + count_str + ".txt"
+    write_data(filename2, DG.edges(labels=False, sort=True))
