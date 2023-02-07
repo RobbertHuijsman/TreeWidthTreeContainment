@@ -12,7 +12,7 @@ MAIN STUFF:
 - TreeDecomposition.py: Contains my implementations for creating (nice) tree decompositions.
 - TreeContainmentTestGeneration.py: Can be used to generate all sorts of test cases. Contains the algorithms for generating random networks and trees. 
 
-PILLARS:
+IMPORTANT FUNCTIONS:
 - JoinNode.py: Contains the code used for join bags. Contains some outdated code for attempts at getting super-compactness to work with join bags (two_long_pathing and others). 
 - IntroduceNode.py: Contains the code used for introduce bags. Read at your own risk. 
 - TreeContainmentCheck.py: Contains all signature filters
